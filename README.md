@@ -1,4 +1,4 @@
-# education_learning
+# online_learning_app
 
 A new Flutter project.
 

@@ -1,6 +1,6 @@
 {
-    "name": "testproject",
-    "short_name": "testproject",
+    "name": "online_learning_app",
+    "short_name": "online_learning_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
