@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../Widget/drawer.dart';
+
+import '../../constants/constants.dart';
 import 'add_comment.dart';
 import 'add_post.dart';
 
-class Community extends StatefulWidget {
-  const Community({Key? key}) : super(key: key);
 
-  @override
-  State<Community> createState() => _CommunityState();
-}
-
-class _CommunityState extends State<Community> {
+class Community extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-        leading: Image.asset('assets/comunity.png',color: Colors.white,width: 40,height: 40,),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.menu))],
+        actions: [Image.asset('assets/comunity.png',color: Colors.white,width: 40,height: 40,)],
+      ),
+      drawer: Drawer(
+        backgroundColor: defaultColor,
+        width: MediaQuery.of(context).size.width *0.55 ,
+        child: DrawerItem(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(5.0),
@@ -27,7 +27,7 @@ class _CommunityState extends State<Community> {
             children: [
               InkWell(
                 onTap: (){
-                  Navigator.of(context).push(_createRoute(AddPost()));
+                  Navigator.of(context).push(createRoute(AddPost()));
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -251,17 +251,18 @@ class _CommunityState extends State<Community> {
       ),
     );
   }
-  Route _createRoute(child) {
-    return PageRouteBuilder(
-      pageBuilder:(context, animation, secondaryAnimation) => child,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin =Offset(0.0, 1.0);
-        const end = Offset(0.0, 0.0);
-        const curve = Curves.fastOutSlowIn;
-        var tween = Tween(begin: begin, end: end);
-        var curveAnmation=CurvedAnimation(parent: animation, curve: curve);
-        return  SlideTransition(position: tween.animate(curveAnmation),child: child,);
-      },
-    );
-  }
+
+}
+Route createRoute(Widget child) {
+  return PageRouteBuilder(
+    pageBuilder:(context, animation, secondaryAnimation) => child,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin =Offset(0.0, 1.0);
+      const end = Offset(0.0, 0.0);
+      const curve = Curves.fastOutSlowIn;
+      var tween = Tween(begin: begin, end: end);
+      var curveAnmation=CurvedAnimation(parent: animation, curve: curve);
+      return  SlideTransition(position: tween.animate(curveAnmation),child: child,);
+    },
+  );
 }

@@ -2,12 +2,7 @@ import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class ShowVideo extends StatefulWidget {
-   @override
-  State<ShowVideo> createState() => _ShowVideoState();
-}
-
-class _ShowVideoState extends State<ShowVideo> {
+class ShowVideo extends StatelessWidget {
   final FlickManager flickManager=
   FlickManager(videoPlayerController:VideoPlayerController.network('https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'));
 

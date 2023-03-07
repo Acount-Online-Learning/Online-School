@@ -1,9 +1,11 @@
-import 'package:education_learning/modules/SubjectExam.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../Styles/Color.dart';
-import '../Widget/drawer.dart';
+import '../../Styles/Color.dart';
+import '../../Widget/drawer.dart';
+import 'SubjectExam.dart';
+
 
 class ExamScreen extends StatelessWidget {
 
@@ -43,7 +45,7 @@ class ExamScreen extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius:BorderRadius.circular(10),
                   image: DecorationImage(
-                      image: AssetImage('images/sub12.jpeg'),
+                      image: AssetImage('assets/sub12.jpeg'),
                       fit: BoxFit.fill,
                   )
               ),
@@ -63,7 +65,7 @@ class ExamScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius:BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage('images/sub12.jpeg'),
+                      image: AssetImage('assets/sub12.jpeg'),
                       fit: BoxFit.fill,
                     )
                 ),

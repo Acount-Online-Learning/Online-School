@@ -1,6 +1,13 @@
-import 'package:education_learning/modules/ExamsScreen.dart';
-import 'package:education_learning/modules/NoticeScreen.dart';
+
 import 'package:flutter/material.dart';
+import 'package:online_learning_app/modules/student/QuestionScreen.dart';
+import 'package:online_learning_app/modules/student/community.dart';
+import 'package:online_learning_app/modules/student/courses.dart';
+
+import '../modules/student/ExamsScreen.dart';
+import '../modules/student/NoticeScreen.dart';
+import '../modules/student/SubjectExam.dart';
+import '../modules/student/books_screen.dart';
 
 class DrawerItem extends StatelessWidget {
   const DrawerItem({Key? key}) : super(key: key);
@@ -13,11 +20,10 @@ class DrawerItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
-
             children: [
               CircleAvatar(
                 radius: 20,
-                backgroundImage: AssetImage('images/img.jpeg'),
+                backgroundImage: AssetImage('assets/image.jpg'),
               ),
               SizedBox(width: 6,),
               Expanded(
@@ -25,12 +31,12 @@ class DrawerItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Mohamed Morsy',style: TextStyle(color: Colors.white,fontSize: 10),),
-                    Text(' moh.morsy@gmail.com',style: TextStyle(color: Colors.white,fontSize: 10)),
+                    SizedBox(height: 7,),
+                    Text('moh.morsy@gmail.com',maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(color: Colors.white,fontSize: 10),),
 
                   ],
                 ),
               ),
-
             ],
           ),
 
@@ -42,7 +48,7 @@ class DrawerItem extends StatelessWidget {
         ),
         InkWell(
           onTap: (){
-
+          Navigator.of(context).push(createRoute(Community()));
           },
           child: ListTile(
             leading: Icon( Icons.supervisor_account_outlined,
@@ -75,7 +81,9 @@ class DrawerItem extends StatelessWidget {
           ),
         ),
         InkWell(
-          onTap: (){},
+          onTap: (){
+            Navigator.of(context).push(createRoute(Courses()));
+          },
           child: ListTile(
             leading: Icon( Icons.golf_course,
               color: Colors.white,
@@ -85,7 +93,9 @@ class DrawerItem extends StatelessWidget {
           ),
         ),
         InkWell(
-          onTap: (){},
+          onTap: (){
+            Navigator.of(context).push(createRoute(BooksScreen()));
+          },
           child: ListTile(
             leading: Icon( Icons.bookmark_rounded,
               color: Colors.white,
@@ -133,8 +143,6 @@ class DrawerItem extends StatelessWidget {
             title: Text('Sign out',style: TextStyle(color: Colors.white),),
           ),
         ),
-
-
 
       ],
     );

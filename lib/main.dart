@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:online_learning_app/modules/student/community.dart';
+import 'modules/parent/homeparent.dart';
+import 'modules/student/SubjectExam.dart';
 
-import 'modules/community.dart';
-import 'modules/courses.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           color:  HexColor('#6C5CE7')
         )
       ),
-      home: Courses(),
+      home: HomeParent(),
     );
   }
 }

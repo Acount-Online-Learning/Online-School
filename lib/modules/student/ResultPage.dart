@@ -1,11 +1,13 @@
-import 'package:education_learning/Bloc/cubit.dart';
-import 'package:education_learning/Bloc/states.dart';
-import 'package:education_learning/constants/constants.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../Styles/Color.dart';
-import '../Widget/drawer.dart';
+import '../../Bloc/cubit.dart';
+import '../../Bloc/states.dart';
+import '../../Styles/Color.dart';
+import '../../Widget/drawer.dart';
+import '../../constants/Comonent.dart';
+
 
 class ResultPage extends StatelessWidget {
   final int num;
@@ -18,7 +20,7 @@ class ResultPage extends StatelessWidget {
       child: BlocConsumer<EducationCubit,EducationStates>(
         listener: (context,state){},
         builder: (context,state){
-          var cubit=EducationCubit.get(context);
+          EducationCubit cubit=EducationCubit.getCubitInstance(context);
           Size size=MediaQuery.of(context).size;
 
           return Scaffold(

@@ -82,4 +82,15 @@ List<BooksModel> booksList = [
     bookHistory: DateTime.now(),
     bookDescription: 'this book guid you to learn the principle of coding with javascript and solving difficult problems in amazing way, this book is the beginning to be a great programer',
   ),
+  BooksModel(
+    bookId: 6,
+    bookName: 'Eloquent JavaScript',
+    bookImage: 'assets/images/book.png',
+    bookMaker: 'Osama Elewa',
+    bookViews: 500,
+    bookPages: 482,
+    bookRating: 4,
+    bookHistory: DateTime.now(),
+    bookDescription: 'this book guid you to learn the principle of coding with javascript and solving difficult problems in amazing way, this book is the beginning to be a great programer',
+  ),
 ];

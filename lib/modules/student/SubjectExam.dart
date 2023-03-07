@@ -1,37 +1,39 @@
-import 'package:education_learning/Bloc/cubit.dart';
-import 'package:education_learning/Bloc/states.dart';
-import 'package:education_learning/Styles/Color.dart';
-import 'package:education_learning/modules/QuestionScreen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../Widget/drawer.dart';
-import '../constants/constants.dart';
+import '../../Bloc/cubit.dart';
+import '../../Bloc/states.dart';
+import '../../Widget/drawer.dart';
+import '../../constants/Comonent.dart';
+import '../../constants/constants.dart';
+import 'QuestionScreen.dart';
+
 
 class SubjectExam extends StatelessWidget {
   const SubjectExam({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
-
     return BlocProvider(
       create: (context)=>EducationCubit(),
       child: BlocConsumer<EducationCubit,EducationStates>(
         listener: (context,state){},
         builder: (context,state){
-          var cubit=EducationCubit.get(context);
+          var cubit=EducationCubit.getCubitInstance(context);
          return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Scaffold(
               appBar: AppBar(
                 title: Text('Subject'),
-                backgroundColor: colorDrawer,
-              ),
-              drawer: Drawer(
-                backgroundColor: Colors.blue,
-                width: size.width *0.55 ,
-                child: DrawerItem(),
+                backgroundColor: defaultColor,
+                leading: IconButton(
+                  onPressed: () {
+            Navigator.pop(context);
+            },
+              icon: const Icon(Icons.arrow_back,size: 35,),
+            ),
               ),
               body: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -46,7 +48,7 @@ class SubjectExam extends StatelessWidget {
                                 value: cubit.itemOne,
                                 isExpanded: true,
 
-                                hint: Text('  Select Please ',style: TextStyle(color:colorDrawer ),),
+                                hint: Text('  Select Please ',style: TextStyle(color:defaultColor ),),
                                 items: itemone.map((item) =>
                                     DropdownMenuItem(
                                         value: item,
@@ -67,12 +69,13 @@ class SubjectExam extends StatelessWidget {
                                 value: cubit.itemTwo,
                                 isExpanded: true,
 
-                                hint: Text('  Select Please ',style: TextStyle(color: colorDrawer),),
+                                hint: Text('  Select Please ',style: TextStyle(color: defaultColor),),
                                 items: itemtwo.map((item) =>
                                     DropdownMenuItem(
                                         value: item,
-
-                                        child: Text('${item}',style: TextStyle(fontSize: 20),)
+                                        child: Text('${item}', maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style:GoogleFonts.comfortaa(fontSize: 13,),)
                                     )
                                 ).toList(),
                                 onChanged: (value){
@@ -106,17 +109,17 @@ class SubjectExam extends StatelessWidget {
   Widget HeaderTextMain(String text){
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
-      child: Text(text,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: colorDrawer),),
+      child: Text(text,style: TextStyle(fontSize: 15,color: defaultColor),),
     );
   }
   Widget HeaderTextBasic(String text){
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 5),
-      child: Text(text,maxLines:1,overflow:TextOverflow.ellipsis,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.grey),),
+      child: Text(text,maxLines:1,overflow:TextOverflow.ellipsis,style: TextStyle(fontSize: 15,color: Colors.black),),
     );
   }
 Widget TableItem(int index,context){
-    return           Table(
+    return          Table(
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
 
       children: [
@@ -127,11 +130,10 @@ Widget TableItem(int index,context){
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
                     top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
                     right:BorderSide(color: Colors.grey,width: 2),
                     left: BorderSide(color: Colors.grey,width: 2)
-
                 )
             ),
             children: [
@@ -148,11 +150,11 @@ Widget TableItem(int index,context){
             decoration: BoxDecoration(
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
-                    top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    top: BorderSide(color: Colors.grey,width: 1),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
-                    right:BorderSide(color: Colors.grey,width: 2),
-                    left: BorderSide(color: Colors.grey,width: 2)
+                    right:BorderSide(color: Colors.grey,width: 1),
+                    left: BorderSide(color: Colors.grey,width: 1)
 
                 )
             ),
@@ -172,7 +174,7 @@ Widget TableItem(int index,context){
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
                     top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
                     right:BorderSide(color: Colors.grey,width: 2),
                     left: BorderSide(color: Colors.grey,width: 2)
@@ -195,7 +197,7 @@ Widget TableItem(int index,context){
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
                     top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
                     right:BorderSide(color: Colors.grey,width: 2),
                     left: BorderSide(color: Colors.grey,width: 2)
@@ -218,7 +220,7 @@ Widget TableItem(int index,context){
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
                     top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
                     right:BorderSide(color: Colors.grey,width: 2),
                     left: BorderSide(color: Colors.grey,width: 2)
@@ -241,7 +243,7 @@ Widget TableItem(int index,context){
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
                     top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
                     right:BorderSide(color: Colors.grey,width: 2),
                     left: BorderSide(color: Colors.grey,width: 2)
@@ -264,7 +266,7 @@ Widget TableItem(int index,context){
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
                     top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
                     right:BorderSide(color: Colors.grey,width: 2),
                     left: BorderSide(color: Colors.grey,width: 2)
@@ -287,7 +289,7 @@ Widget TableItem(int index,context){
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
                     top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
                     right:BorderSide(color: Colors.grey,width: 2),
                     left: BorderSide(color: Colors.grey,width: 2)
@@ -310,7 +312,7 @@ Widget TableItem(int index,context){
               // color: Colors.black.withOpacity(0.7),
                 border: Border(
                     top: BorderSide(color: Colors.grey,width: 2),
-                    bottom: BorderSide(color: Colors.grey,width: 2),
+                    bottom: BorderSide(color: Colors.grey,width: 0),
 
                     right:BorderSide(color: Colors.grey,width: 2),
                     left: BorderSide(color: Colors.grey,width: 2)

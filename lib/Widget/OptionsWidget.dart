@@ -1,5 +1,7 @@
-import 'package:education_learning/Models/QuestionModel.dart';
+
 import 'package:flutter/material.dart';
+
+import '../Models/QuestionModel.dart';
 
 class OptionsWidget extends StatelessWidget {
   final QuestionModel question;

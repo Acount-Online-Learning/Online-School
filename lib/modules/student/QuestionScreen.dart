@@ -1,14 +1,14 @@
-import 'package:education_learning/Bloc/cubit.dart';
-import 'package:education_learning/Bloc/states.dart';
-import 'package:education_learning/Models/QuestionModel.dart';
-import 'package:education_learning/modules/ResultPage.dart';
-import 'package:education_learning/Widget/OptionsWidget.dart';
-import 'package:education_learning/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../Styles/Color.dart';
-import '../Widget/drawer.dart';
+import '../../Bloc/cubit.dart';
+import '../../Bloc/states.dart';
+import '../../Models/QuestionModel.dart';
+import '../../Styles/Color.dart';
+import '../../Widget/OptionsWidget.dart';
+import '../../Widget/drawer.dart';
+import '../../constants/Comonent.dart';
+import 'ResultPage.dart';
 
 class QuestionScreen extends StatelessWidget {
 var controller=PageController();
@@ -21,7 +21,7 @@ var controller=PageController();
       child: BlocConsumer<EducationCubit,EducationStates>(
         listener: (context,state){},
         builder: (context,state){
-          var cubit=EducationCubit.get(context);
+          var cubit=EducationCubit.getCubitInstance(context);
           var x=cubit.Score;
           Size size=MediaQuery.of(context).size;
 
@@ -79,10 +79,10 @@ var controller=PageController();
               return ;
 
             }else{
-             EducationCubit.get(context).onclickOption(question,option);
-             EducationCubit.get(context).isLocked=question.isLocked;
+             EducationCubit.getCubitInstance(context).onclickOption(question,option);
+             EducationCubit.getCubitInstance(context).isLocked=question.isLocked;
              if(question.selectedOption!.iscorrect){
-               EducationCubit.get(context).GetScore();
+               EducationCubit.getCubitInstance(context).GetScore();
              }
             }
           },
@@ -93,12 +93,12 @@ var controller=PageController();
   Widget BuiltElevatedButton(context,int x){
   return ElevatedButton(
       onPressed: (){
-        if(EducationCubit.get(context).questionNumber < questions.length) {
+        if(EducationCubit.getCubitInstance(context).questionNumber < questions.length) {
           controller.nextPage(
               duration: Duration(milliseconds: 250),
               curve: Curves.easeInExpo
           );
-          EducationCubit.get(context).increaseQuestionNumber();
+          EducationCubit.getCubitInstance(context).increaseQuestionNumber();
         }
         else{
           Navigator.pushReplacement(
@@ -109,7 +109,7 @@ var controller=PageController();
         }
       },
       child: Text(
-        EducationCubit.get(context).questionNumber < questions.length?'Next Page':'See of Result'
+        EducationCubit.getCubitInstance(context).questionNumber < questions.length?'Next Page':'See of Result'
       )
   );
   }

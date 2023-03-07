@@ -1,6 +1,8 @@
-import 'package:education_learning/Styles/Color.dart';
-import 'package:education_learning/Widget/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../../Widget/drawer.dart';
+import '../../constants/constants.dart';
 
 class NoticeScreen extends StatelessWidget {
   const NoticeScreen({Key? key}) : super(key: key);
@@ -12,11 +14,11 @@ class NoticeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Notice'),
-        backgroundColor: colorDrawer,
+        backgroundColor: defaultColor,
 
       ),
       drawer: Drawer(
-        backgroundColor: colorDrawer,
+        backgroundColor: defaultColor,
         width: size.width *0.55 ,
         child: DrawerItem(),
       ),
@@ -51,10 +53,10 @@ class NoticeScreen extends StatelessWidget {
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-        color: Colors.green,
+        color: defaultColor,
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Text('Mohamed Morsy passed in Interview to Field Flutter Development '),
+      child: Text('Mohamed Morsy passed in Interview to Field Flutter Development',style:  GoogleFonts.actor(textStyle: TextStyle(fontSize: 15,color: Colors.white)),),
     );
   }
 }
