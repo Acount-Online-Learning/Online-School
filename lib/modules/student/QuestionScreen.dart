@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_learning_app/modules/student/Bloc/cubit.dart';
+import 'package:online_learning_app/modules/student/Bloc/states.dart';
 
-import '../../Bloc/cubit.dart';
-import '../../Bloc/states.dart';
 import '../../Models/QuestionModel.dart';
 import '../../Styles/Color.dart';
 import '../../Widget/OptionsWidget.dart';
-import '../../Widget/drawer.dart';
+import 'drawer.dart';
 import '../../constants/Comonent.dart';
 import 'ResultPage.dart';
 
@@ -21,19 +21,24 @@ var controller=PageController();
       child: BlocConsumer<EducationCubit,EducationStates>(
         listener: (context,state){},
         builder: (context,state){
-          var cubit=EducationCubit.getCubitInstance(context);
+          var cubit=EducationCubit.get(context);
           var x=cubit.Score;
           Size size=MediaQuery.of(context).size;
 
           return  Scaffold(
             appBar: AppBar(
               title: Text('Question'),
+              leading: IconButton(
+                  icon: Icon(
+                    Icons.arrow_back,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+
               backgroundColor: colorDrawer,
-            ),
-            drawer: Drawer(
-              backgroundColor: colorDrawer,
-              width: size.width *0.55 ,
-              child: DrawerItem(),
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal:17 ),
@@ -79,10 +84,10 @@ var controller=PageController();
               return ;
 
             }else{
-             EducationCubit.getCubitInstance(context).onclickOption(question,option);
-             EducationCubit.getCubitInstance(context).isLocked=question.isLocked;
+             EducationCubit.get(context).onclickOption(question,option);
+             EducationCubit.get(context).isLocked=question.isLocked;
              if(question.selectedOption!.iscorrect){
-               EducationCubit.getCubitInstance(context).GetScore();
+               EducationCubit.get(context).GetScore();
              }
             }
           },
@@ -93,12 +98,12 @@ var controller=PageController();
   Widget BuiltElevatedButton(context,int x){
   return ElevatedButton(
       onPressed: (){
-        if(EducationCubit.getCubitInstance(context).questionNumber < questions.length) {
+        if(EducationCubit.get(context).questionNumber < questions.length) {
           controller.nextPage(
               duration: Duration(milliseconds: 250),
               curve: Curves.easeInExpo
           );
-          EducationCubit.getCubitInstance(context).increaseQuestionNumber();
+          EducationCubit.get(context).increaseQuestionNumber();
         }
         else{
           Navigator.pushReplacement(
@@ -109,7 +114,7 @@ var controller=PageController();
         }
       },
       child: Text(
-        EducationCubit.getCubitInstance(context).questionNumber < questions.length?'Next Page':'See of Result'
+        EducationCubit.get(context).questionNumber < questions.length?'Next Page':'See of Result'
       )
   );
   }

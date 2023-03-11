@@ -3,7 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-import '../../Widget/drawer.dart';
+import 'drawer.dart';
 import '../../constants/constants.dart';
 import '../../Models/books_model.dart';
 

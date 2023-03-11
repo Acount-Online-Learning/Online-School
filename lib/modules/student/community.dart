@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Widget/drawer.dart';
+import 'drawer.dart';
 
 import '../../constants/constants.dart';
 import 'add_comment.dart';
@@ -27,7 +27,7 @@ class Community extends StatelessWidget{
             children: [
               InkWell(
                 onTap: (){
-                  Navigator.of(context).push(createRoute(AddPost()));
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>AddPost()));
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),

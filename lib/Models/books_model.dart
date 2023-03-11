@@ -26,7 +26,7 @@ List<BooksModel> booksList = [
   BooksModel(
     bookId: 1,
     bookName: 'Eloquent JavaScript',
-    bookImage: 'assets/images/book.png',
+    bookImage: 'assets/book.png',
     bookMaker: 'Osama Elewa',
     bookViews: 500,
     bookPages: 482,
@@ -38,7 +38,7 @@ List<BooksModel> booksList = [
   BooksModel(
     bookId: 2,
     bookName: 'Eloquent JavaScript',
-    bookImage: 'assets/images/book.png',
+    bookImage: 'assets/book.png',
     bookMaker: 'Osama Elewa',
     bookViews: 500,
     bookPages: 482,
@@ -50,7 +50,7 @@ List<BooksModel> booksList = [
   BooksModel(
     bookId: 3,
     bookName: 'Eloquent JavaScript',
-    bookImage: 'assets/images/book.png',
+    bookImage: 'assets/book.png',
     bookMaker: 'Osama Elewa',
     bookViews: 500,
     bookPages: 482,
@@ -62,7 +62,7 @@ List<BooksModel> booksList = [
   BooksModel(
     bookId: 4,
     bookName: 'Eloquent JavaScript',
-    bookImage: 'assets/images/book.png',
+    bookImage: 'assets/book.png',
     bookMaker: 'Osama Elewa',
     bookViews: 500,
     bookPages: 482,
@@ -74,7 +74,7 @@ List<BooksModel> booksList = [
   BooksModel(
     bookId: 5,
     bookName: 'Eloquent JavaScript',
-    bookImage: 'assets/images/book.png',
+    bookImage: 'assets/book.png',
     bookMaker: 'Osama Elewa',
     bookViews: 500,
     bookPages: 482,
@@ -85,7 +85,7 @@ List<BooksModel> booksList = [
   BooksModel(
     bookId: 6,
     bookName: 'Eloquent JavaScript',
-    bookImage: 'assets/images/book.png',
+    bookImage: 'assets/book.png',
     bookMaker: 'Osama Elewa',
     bookViews: 500,
     bookPages: 482,

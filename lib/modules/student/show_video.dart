@@ -9,7 +9,18 @@ class ShowVideo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              size: 30,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+
+      ),
       body: Center(
         child: AspectRatio(
           aspectRatio: 16/9,

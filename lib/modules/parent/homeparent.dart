@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:online_learning_app/Bloc/cubit.dart';
-import 'package:online_learning_app/Bloc/states.dart';
+import 'package:online_learning_app/modules/parent/DrawerParent.dart';
+import 'package:online_learning_app/modules/student/Bloc/cubit.dart';
+import 'package:online_learning_app/modules/student/Bloc/states.dart';
 import 'package:pie_chart/pie_chart.dart';
 import '../../constants/constants.dart';
 
@@ -14,9 +15,14 @@ class HomeParent extends StatelessWidget {
     return BlocProvider(create: (context)=>EducationCubit(),
     child: BlocConsumer<EducationCubit,EducationStates>(
       builder: (context,state){
-        EducationCubit cubit=EducationCubit.getCubitInstance(context);
+        var cubit=EducationCubit.get(context);
         return Scaffold(
           appBar: AppBar(),
+          drawer: Drawer(
+            backgroundColor: defaultColor,
+            width: MediaQuery.of(context).size.width *0.55 ,
+            child: DrawerItem(),
+          ),
           body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(12.0),

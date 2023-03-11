@@ -8,15 +8,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:online_learning_app/Bloc/states.dart';
+import 'package:online_learning_app/modules/student/Bloc/states.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-import '../Models/QuestionModel.dart';
-import '../constants/constants.dart';
+import '../../../Models/QuestionModel.dart';
+
+
 
 class EducationCubit extends Cubit<EducationStates>{
   EducationCubit():super(initialState());
-  static EducationCubit getCubitInstance(context)=>BlocProvider.of(context);
+  static EducationCubit get(context)=>BlocProvider.of(context);
   bool isLocked=false;
   var questionNumber=1;
   var Score=0;

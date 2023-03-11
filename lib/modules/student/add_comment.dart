@@ -6,20 +6,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:online_learning_app/Bloc/cubit.dart';
-import 'package:online_learning_app/Bloc/states.dart';
+import 'package:online_learning_app/modules/student/Bloc/cubit.dart';
+import 'package:online_learning_app/modules/student/Bloc/states.dart';
+
 import '../../constants/constants.dart';
+
 class AddComment extends StatelessWidget{
   bool autoRepley = false;
   FocusNode focusNode = FocusNode();
   @override
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: BlocProvider(create: (context)=>EducationCubit(),
+    return BlocProvider(
+      create: (context)=>EducationCubit(),
       child: BlocConsumer<EducationCubit,EducationStates>(
         builder: (context,state){
-          EducationCubit cubit=EducationCubit.getCubitInstance(context);
+          var cubit=EducationCubit.get(context);
           return Scaffold(
             resizeToAvoidBottomInset: true,
             appBar: AppBar(
@@ -33,9 +35,9 @@ class AddComment extends StatelessWidget{
                     Navigator.pop(context);
                   }),
             ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-              child: SingleChildScrollView(
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 child: Column(
                   children: [
                     Container(
@@ -277,7 +279,6 @@ class AddComment extends StatelessWidget{
         },
         listener: (context,state){},
       ),
-      )
     );
   }
 }

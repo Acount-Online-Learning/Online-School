@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:online_learning_app/constants/constants.dart';
 
 import '../Models/books_model.dart';
 
 import '../Models/QuestionModel.dart';
 import '../modules/student/books_detail.dart';
 //code create by morsy;
+List<String>resultone=[
+  'Announced',
+  'play',
+  'mohamed',
+];
+List<String> resulttwo=[
+  'All Courses',
+  'All',
+  'mohamed',
+];
 List<String>itemone=[
   'your Teacher',
   'Student',
@@ -315,3 +326,48 @@ Widget buildBooksItem(BooksModel model,context) => GestureDetector(
     ),
   ),
 );
+
+//code Button
+Widget BuiltButton({
+  required String name,
+  required function,
+  double? height,
+  double? width,
+
+}){
+  return Container(
+    height: height,
+    width: width,
+    color: defaultColor,
+    child: MaterialButton(
+        onPressed: function,
+      child: Text('${name}',style: TextStyle(color: Colors.white,fontSize: 20),)
+    ),
+  );
+}
+
+//Code DropDown
+
+Widget BuiltDropDown(
+{
+  required String value,
+  required List<String>? listdrop,
+  required function
+}
+    ){
+  return DropdownButton(
+
+      value: value,
+      isExpanded: true,
+
+      hint: Text('  Select Please ',style: TextStyle(color:defaultColor ),),
+      items: listdrop!.map((item) =>
+          DropdownMenuItem(
+              value: item,
+
+              child: Text('${item}',style: TextStyle(fontSize: 20),)
+          )
+      ).toList(),
+      onChanged:function
+  );
+}

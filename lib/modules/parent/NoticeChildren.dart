@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:online_learning_app/modules/parent/DrawerParent.dart';
 
-import 'drawer.dart';
 import '../../constants/constants.dart';
 
-class NoticeScreen extends StatelessWidget {
-  const NoticeScreen({Key? key}) : super(key: key);
+class NoticeChildren extends StatelessWidget {
+  const NoticeChildren({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class NoticeScreen extends StatelessWidget {
       ),
       drawer: Drawer(
         backgroundColor: defaultColor,
-        width: size.width *0.55 ,
+        width: MediaQuery.of(context).size.width *0.55 ,
         child: DrawerItem(),
       ),
       body: Padding(

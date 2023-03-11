@@ -1,16 +1,14 @@
-
 import 'package:flutter/material.dart';
-import 'package:online_learning_app/modules/student/QuestionScreen.dart';
-import 'package:online_learning_app/modules/student/community.dart';
-import 'package:online_learning_app/modules/student/courses.dart';
+import 'package:online_learning_app/modules/Schools/ClassesScreen.dart';
+import 'package:online_learning_app/modules/Schools/ResultScreen.dart';
+import 'package:online_learning_app/modules/Schools/RoomsScreen.dart';
+import 'package:online_learning_app/modules/Schools/TeacherScreen.dart';
 
-import '../modules/student/ExamsScreen.dart';
-import '../modules/student/NoticeScreen.dart';
-import '../modules/student/SubjectExam.dart';
-import '../modules/student/books_screen.dart';
 
 class DrawerItem extends StatelessWidget {
-  const DrawerItem({Key? key}) : super(key: key);
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,73 +46,77 @@ class DrawerItem extends StatelessWidget {
         ),
         InkWell(
           onTap: (){
-          Navigator.of(context).push(createRoute(Community()));
+         // Navigator.of(context).push(createRoute(Community()));
           },
           child: ListTile(
-            leading: Icon( Icons.supervisor_account_outlined,
+            leading: Icon( Icons.home,
               color: Colors.white,
               size: 30,
             ),
-            title: Text('Community',style: TextStyle(color: Colors.white),),
+            title: Text('Home',style: TextStyle(color: Colors.white),),
           ),
         ),
         InkWell(
           onTap: (){
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ExamScreen()), (route) => false);
+            //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ExamScreen()), (route) => false);
           },
           child: ListTile(
-            leading: Icon( Icons.book,
+            leading: Icon( Icons.subject_outlined,
               color: Colors.white,
               size: 30,
             ),
-            title: Text('Exams',style: TextStyle(color: Colors.white),),
-          ),
-        ),
-        InkWell(
-          onTap: (){},
-          child: ListTile(
-            leading: Icon( Icons.wrap_text_outlined,
-              color: Colors.white,
-              size: 30,
-            ),
-            title: Text('Absense',style: TextStyle(color: Colors.white),),
+            title: Text('Subject',style: TextStyle(color: Colors.white),),
           ),
         ),
         InkWell(
           onTap: (){
-            Navigator.of(context).push(createRoute(Courses()));
-          },
-          child: ListTile(
-            leading: Icon( Icons.golf_course,
-              color: Colors.white,
-              size: 30,
-            ),
-            title: Text('Courses',style: TextStyle(color: Colors.white),),
-          ),
-        ),
-        InkWell(
-          onTap: (){
-            Navigator.of(context).push(createRoute(BooksScreen()));
-          },
-          child: ListTile(
-            leading: Icon( Icons.bookmark_rounded,
-              color: Colors.white,
-              size: 30,
-            ),
-            title: Text('Books',style: TextStyle(color: Colors.white),),
-          ),
-        ),
-        InkWell(
-          onTap: (){
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>NoticeScreen()), (route) => false);
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ClassesScreen()), (route) => false);
 
           },
           child: ListTile(
-            leading: Icon( Icons.notification_important,
+            leading: Icon( Icons.menu,
               color: Colors.white,
               size: 30,
             ),
-            title: Text('Notices',style: TextStyle(color: Colors.white),),
+            title: Text('Classes',style: TextStyle(color: Colors.white),),
+          ),
+        ),
+        InkWell(
+          onTap: (){
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> RoomsScreen()), (route) => false);
+
+          },
+          child: ListTile(
+            leading: Icon( Icons.roofing_sharp,
+              color: Colors.white,
+              size: 30,
+            ),
+            title: Text('Roms',style: TextStyle(color: Colors.white),),
+          ),
+        ),
+        InkWell(
+          onTap: (){
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>TeacherScreen()), (route) => false);
+          },
+          child: ListTile(
+            leading: Icon( Icons.person,
+              color: Colors.white,
+              size: 30,
+            ),
+            title: Text('Teachers',style: TextStyle(color: Colors.white),),
+          ),
+        ),
+        InkWell(
+          onTap: (){
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ResultScreen()), (route) => false);
+
+          },
+          child: ListTile(
+            leading: Icon( Icons.zoom_out_map_outlined,
+              color: Colors.white,
+              size: 30,
+            ),
+            title: Text('Results',style: TextStyle(color: Colors.white),),
           ),
         ),
         Spacer(),
