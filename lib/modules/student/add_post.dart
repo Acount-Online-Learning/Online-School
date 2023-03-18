@@ -20,14 +20,11 @@ class AddPost extends StatelessWidget {
             return Scaffold(
                 appBar: AppBar(
                   leading: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back,
-                        size: 30,
-                        color: Colors.white,
-                      ),
                       onPressed: () {
-                        Navigator.pop(context);
-                      }),
+                Navigator.pop(context);
+                },
+                  icon: const Icon(Icons.arrow_back,size: 35,),
+                )
 
                 ),
                 body: CustomScrollView(

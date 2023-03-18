@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:online_learning_app/modules/Schools/Bloc/Cubit.dart';
 import 'package:online_learning_app/modules/Schools/ClassesScreen.dart';
+import 'package:online_learning_app/modules/Teacher/HomeTeacher.dart';
 import 'package:online_learning_app/modules/parent/Bloc/Cubit.dart';
 import 'package:online_learning_app/modules/parent/ExamsChildren.dart';
 import 'package:online_learning_app/modules/student/Bloc/cubit.dart';
@@ -12,6 +13,7 @@ import 'package:online_learning_app/modules/student/community.dart';
 import 'modules/Schools/ResultScreen.dart';
 import 'modules/Schools/RoomsScreen.dart';
 import 'modules/Schools/TeacherScreen.dart';
+import 'modules/Teacher/AbsenceTeacher.dart';
 
 
 
@@ -50,7 +52,7 @@ class MyApp extends StatelessWidget {
 
 
           ],
-          child: ExamScreen()
+          child: ExamsChildren()
       ),
     );
   }

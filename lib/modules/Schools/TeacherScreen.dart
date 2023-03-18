@@ -242,17 +242,19 @@ class TeacherScreen extends StatelessWidget {
   }
   Widget HeaderRowItem(){
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         CircleAvatar(
           radius: 30,
           backgroundImage: AssetImage('assets/images/img.jpeg'),
         ),
-        SizedBox(width: 10,),
+        SizedBox(width: 5,),
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text('Mohamed Morsy',style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),),
+              SizedBox(height: 5,),
               Text('301045456789765',style: TextStyle(fontSize: 15,color: Colors.green),)
             ],
           ),

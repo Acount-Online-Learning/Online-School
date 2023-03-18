@@ -14,8 +14,8 @@ class ExamScreen extends StatelessWidget {
     Size size=MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Exam'),
-        backgroundColor: colorDrawer,
+        title:const Text('Exam'),
+        //backgroundColor: colorDrawer,
       ),
       drawer: Drawer(
           backgroundColor: colorDrawer,
@@ -37,7 +37,7 @@ class ExamScreen extends StatelessWidget {
         Expanded(
           child: InkWell(
             onTap: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SubjectExam()), (route) => false);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>SubjectExam()));
 
             },
             child: Container(
@@ -57,7 +57,7 @@ class ExamScreen extends StatelessWidget {
           Expanded(
             child: InkWell(
               onTap: (){
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SubjectExam()), (route) => false);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SubjectExam()));
 
               },
               child: Container(

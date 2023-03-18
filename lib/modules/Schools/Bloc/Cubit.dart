@@ -21,4 +21,22 @@ class SchoolCubit extends Cubit<SchoolStates>{
     itemTwo=value;
     emit(changeItemTwoSchoolState());
   }
+  List<int> list=[
+  ];
+  void ChangeItem(int id){
+    list.add(id);
+    emit(ChangeContainerSchoolState());
+
+  }
+  bool move=false;
+  void MoveContainer(int index){
+    if(list[index]==index){
+      move==true;
+      emit(ff());
+
+    }
+    move=false;
+    emit(ff());
+
+  }
 }

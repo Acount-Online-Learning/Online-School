@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_learning_app/modules/student/Bloc/cubit.dart';
 import 'package:online_learning_app/modules/student/Bloc/states.dart';
+import 'package:online_learning_app/modules/student/ExamsScreen.dart';
 
 import '../../Styles/Color.dart';
+import 'SubjectExam.dart';
 import 'drawer.dart';
 import '../../constants/Comonent.dart';
 
@@ -33,10 +35,10 @@ class ResultPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ExamScreen()));
                   }),
 
-              backgroundColor: colorDrawer,
+            //  backgroundColor: colorDrawer,
             ),
 
 

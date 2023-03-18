@@ -44,27 +44,35 @@ class ExamsChildren extends StatelessWidget  {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            radius: 35,
-                            backgroundImage:AssetImage('assets/images/img.jpeg') ,
+                          Expanded(
+                            flex: 1,
+                            child: CircleAvatar(
+                              radius: 35,
+                              backgroundImage:AssetImage('assets/images/img.jpeg') ,
+                            ),
                           ),
                           SizedBox(width: 10,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Mohamed Morsy',style: TextStyle(fontSize: 20),),
-                              Text('300/300',style: TextStyle(fontSize:16,color:Colors.grey ),)
-                            ],
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Mohamed Morsy',style: TextStyle(fontSize: 20),),
+                                Text('300/300',style: TextStyle(fontSize:16,color:Colors.grey ),)
+                              ],
+                            ),
                           ),
-                          Spacer(),
-                          IconButton(
-                              onPressed: (){
-                                cubit.ChangeContainer();
-                              },
-                              icon: cubit.value?Icon(Icons.remove,color: defaultColor,):Icon(Icons.add,color: defaultColor,)
+                          Expanded(
+                            flex: 1,
+                            child: IconButton(
+                                onPressed: (){
+                                  cubit.ChangeContainer();
+                                },
+                                icon: cubit.value?Icon(Icons.remove,color: defaultColor,):Icon(Icons.add,color: defaultColor,)
+                            ),
                           )
                         ],
                       ),
@@ -79,7 +87,7 @@ class ExamsChildren extends StatelessWidget  {
                       children: [
                         Row(
                           children: [
-                            Expanded(child: Text('Name',maxLines:2,overflow:TextOverflow.ellipsis,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
+                            Expanded(child: Text('Name ',maxLines:2,overflow:TextOverflow.ellipsis,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
                             Expanded(child: Text('Subject',maxLines:2,overflow:TextOverflow.ellipsis,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
                             Expanded(child: Text('Degree',maxLines:2,overflow:TextOverflow.ellipsis,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
                             Expanded(child: Text('Status',maxLines:2,overflow:TextOverflow.ellipsis,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),

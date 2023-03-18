@@ -20,7 +20,7 @@ class RoomsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Classes'),
+                title: Text('Rooms'),
                 backgroundColor: defaultColor,
               ),
                 drawer: Drawer(

@@ -3,4 +3,5 @@ class initialSchoolState extends SchoolStates{}
 class ChangeContainerSchoolState extends SchoolStates{}
 class changeItemOneSchoolState extends SchoolStates{}
 class changeItemTwoSchoolState extends SchoolStates{}
+class ff extends SchoolStates{}
 

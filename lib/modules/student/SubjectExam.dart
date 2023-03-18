@@ -25,17 +25,12 @@ class SubjectExam extends StatelessWidget {
          return Scaffold(
            appBar: AppBar(
              title: Text('Subject'),
-             leading: IconButton(
-                 icon: Icon(
-                   Icons.arrow_back,
-                   size: 30,
-                   color: Colors.white,
-                 ),
+               leading: IconButton(
                  onPressed: () {
                    Navigator.pop(context);
-                 }),
-
-             backgroundColor: defaultColor,
+                 },
+                 icon: const Icon(Icons.arrow_back,size: 35,),
+               )
 
            ),
 
@@ -337,7 +332,7 @@ Widget TableItem(int index,context){
                 height: 60,
                 color: Colors.blue,
                 onPressed: (){
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>QuestionScreen()), (route) => false);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>QuestionScreen()));
                 },
                 child: Text('start',style: TextStyle(fontSize: 17,color: Colors.white),),
               ),

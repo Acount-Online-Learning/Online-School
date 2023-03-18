@@ -28,17 +28,7 @@ var controller=PageController();
           return  Scaffold(
             appBar: AppBar(
               title: Text('Question'),
-              leading: IconButton(
-                  icon: Icon(
-                    Icons.arrow_back,
-                    size: 30,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }),
 
-              backgroundColor: colorDrawer,
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal:17 ),
@@ -106,7 +96,7 @@ var controller=PageController();
           EducationCubit.get(context).increaseQuestionNumber();
         }
         else{
-          Navigator.pushReplacement(
+          Navigator.push(
               context,
               MaterialPageRoute(builder: (context)=>ResultPage(num:x)
               )

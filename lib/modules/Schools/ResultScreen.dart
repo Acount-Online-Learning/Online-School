@@ -80,10 +80,13 @@ class ResultScreen extends StatelessWidget {
                     ],
                   ),
                   Expanded(
-                    child: ListView.separated(
-                        itemBuilder: (context,index)=>BuiltResult(context),
-                        separatorBuilder: (context,index)=>Container(),
-                        itemCount: 1
+                    child: Container(
+                     // height: 300,
+                      child: ListView.separated(
+                          itemBuilder: (context,index)=>BuiltResult(context),
+                          separatorBuilder: (context,index)=>Container(),
+                          itemCount: 1
+                      ),
                     ),
                   ),
                 ],
@@ -110,35 +113,41 @@ class ResultScreen extends StatelessWidget {
       child: Column(
 
           children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(15),
-                  topLeft: Radius.circular(15)
-                ),
-                color: defaultColor,
+            Expanded(
+              flex: 2,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(15),
+                    topLeft: Radius.circular(15)
+                  ),
+                  color: defaultColor,
 
-              ),
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Text('English (50)',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                )),
-            SizedBox(height:10 ,),
-            Text('48'),
+                ),
+                  child: Padding(
+                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Center(child: Text('English (50)',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)),
+                  )),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 5),
+                child: Text('48'),
+              )),
+            ),
 
           ],
         ),
     );
     }
     Widget BuiltResult(context){
-      Size size=MediaQuery.of(context).size;
 
       var cubit=SchoolCubit.get(context);
 
     return Container(
-
-      height:cubit.value ? size.height *0.22:80 ,
+    height:cubit.value? 200:70,
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,24 +170,30 @@ class ResultScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    radius: 35,
-                    backgroundImage:AssetImage('assets/images/img.jpeg') ,
+                  Expanded(
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundImage:AssetImage('assets/images/img.jpeg') ,
+                    ),
                   ),
                   SizedBox(width: 10,),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Mohamed Morsy',style: TextStyle(fontSize: 20),),
-                      Text('300/300',style: TextStyle(fontSize:16,color:Colors.grey ),)
-                    ],
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Mohamed Morsy',style: TextStyle(fontSize: 20),),
+                        Text('300/300',style: TextStyle(fontSize:16,color:Colors.grey ),)
+                      ],
+                    ),
                   ),
-                  Spacer(),
-                  IconButton(
-                      onPressed: (){
-                        cubit.ChangeContainer();
-                      },
-                      icon: cubit.value?Icon(Icons.remove,color: defaultColor,):Icon(Icons.add,color: defaultColor,)
+                  Expanded(
+                    child: IconButton(
+                        onPressed: (){
+                          cubit.ChangeContainer();
+                        },
+                        icon: cubit.value?Icon(Icons.remove,color: defaultColor,):Icon(Icons.add,color: defaultColor,)
+                    ),
                   )
                 ],
               ),
