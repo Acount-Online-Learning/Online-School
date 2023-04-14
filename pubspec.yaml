@@ -44,6 +44,10 @@ dependencies:
   carousel_slider: ^4.1.1
   flutter_rating_bar: ^4.0.1
   intl: ^0.17.0
+  image_picker: ^0.8.3+1
+  path: ^1.8.1
+  flutter_screenutil: ^5.5.4
+  font_awesome_flutter: ^10.2.0
 
 dev_dependencies:
   flutter_test:

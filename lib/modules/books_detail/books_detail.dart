@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
 import '../../model/books_model.dart';
 
 class BooksDetail extends StatelessWidget {
-  BooksDetail({required this.model});
+  BooksDetail({Key? key, required this.model}) : super(key: key);
 
   BooksModel model;
 
@@ -25,15 +27,26 @@ class BooksDetail extends StatelessWidget {
                 children: [
                   Image(
                     image: AssetImage(model.bookImage),
-                    height: MediaQuery.of(context).size.height / 2,
+                    height: 350.h,
+                    fit: BoxFit.fill,
                     width: MediaQuery.of(context).size.width,
                   ),
-                  IconButton(
-                    onPressed: () {
+                  GestureDetector(
+                    onTap: (){
                       Navigator.pop(context);
                     },
-                    icon: const Icon(Icons.arrow_back_ios_new,size: 35,),
-                  )
+                    child: const Image(
+                        image: AssetImage('assets/images/cancel.png'),
+                      height: 40,
+                      width: 40,
+                    ),
+                  ),
+                  // IconButton(
+                  //   onPressed: () {
+                  //     Navigator.pop(context);
+                  //   },
+                  //   icon: const Icon(FontAwesomeIcons.circleXmark,size: 35,color: Colors.red,),
+                  // )
                 ],
               ),
               const SizedBox(
@@ -61,6 +74,7 @@ class BooksDetail extends StatelessWidget {
                   const SizedBox(
                     width: 6,
                   ),
+                  const Text('Created by : ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.red),),
                   Text(
                     model.bookMaker,
                     style: const TextStyle(
@@ -128,7 +142,7 @@ class BooksDetail extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5)),
                     onPressed: () {},
                     child: Row(
-                      children: [
+                      children: const[
                         Icon(
                           Icons.download,
                           color: Colors.white,
